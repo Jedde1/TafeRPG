@@ -12,16 +12,22 @@ public class PlayerPrefsSave : MonoBehaviour
         if (!PlayerPrefs.HasKey("Loaded"))
         {
             PlayerPrefs.DeleteAll();
-            Load(player);
+            FirstLoad();
             PlayerPrefs.SetInt("Loaded", 0);
+            Save();
             //Save Binay Data
         }
         else
         {
             //Load Binary 
+            Load();
         }
     }
-    public void Save(PlayerHandler player)
+    void FirstLoad()
+    {
+
+    }
+    public void Save()
     {
         //Health, Mana, Stamina
         //PlayerPrefs save Float with Key CurHealth and the players curremt health value
@@ -38,9 +44,9 @@ public class PlayerPrefsSave : MonoBehaviour
         PlayerPrefs.SetFloat("RotX", player.transform.rotation.z);
         PlayerPrefs.SetFloat("RotX", player.transform.rotation.w);
     }
-
+   
     // Update is called once per frame
-    public void Load(PlayerHandler player)
+    public void Load()
     {
         //Health, Mana, Stamina
         //Players current health is set to PlayerPrefs Saved float called CurHealth, else set it to MaxHealth
@@ -48,13 +54,15 @@ public class PlayerPrefsSave : MonoBehaviour
         player.curMana = PlayerPrefs.GetFloat("CurMana", player.curMana);
         player.curStamina = PlayerPrefs.GetFloat("CurStamina", player.curStamina);
         //Postion
-        /*
-        x = PlayerPrefs.GetFloat("PlayerX", 1);
-        y = PlayerPrefs.GetFloat("PlayerY", 1);
-        z = PlayerPrefs.GetFloat("PlayerZ", 1);
-        */
-        player.transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerX" ,1), PlayerPrefs.GetFloat("playerY", 1), PlayerPrefs.GetFloat("PlayerZ", 1));
+
+       // x = PlayerPrefs.GetFloat("PlayerX", 1);
+       // y = PlayerPrefs.GetFloat("PlayerY", 1);
+       // z = PlayerPrefs.GetFloat("PlayerZ", 1);
+
+        player.transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerX", 1), PlayerPrefs.GetFloat("playerY", 1), PlayerPrefs.GetFloat("PlayerZ", 1));
         player.transform.rotation = new Quaternion(PlayerPrefs.GetFloat("PlayerRotX", 0), PlayerPrefs.GetFloat("PlayerRotY", 0), PlayerPrefs.GetFloat("PlayerRotZ", 0), PlayerPrefs.GetFloat("PlayerRotW", 0));
         //Rotation
     }
 }
+    
+ 

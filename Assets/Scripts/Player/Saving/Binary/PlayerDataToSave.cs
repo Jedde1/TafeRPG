@@ -23,7 +23,7 @@ public class PlayerDataToSave
         curStamina = player.curStamina;
 
         pX = player.transform.position.x;
-        pY = player.transform.position.z;
+        pY = player.transform.position.y;
         pZ = player.transform.position.z;
 
         rX = player.transform.rotation.x;

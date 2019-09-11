@@ -35,23 +35,28 @@ namespace RPG.Player
             if (GetComponent<Camera>())
             {
                 axis = RotationalAxis.MouseY;
-            } 
+            }
         }
         //Update - 
         private void Update()
         {
-            //Allows the rotaion of the camera on the X-axis
-            if (axis == RotationalAxis.MouseX)
+            //If we are alive Rotate Camera and Player
+            if (!PlayerHandler.isDead)
             {
-                transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime, 0);
+                //Allows the rotaion of the camera on the X-axis
+                if (axis == RotationalAxis.MouseX)
+                {
+                    transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime, 0);
+                }
+                //Allows the Camera to move along the Y-axis
+                else
+                {
+                    _rotY += Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+                    _rotY = Mathf.Clamp(_rotY, minY, maxY);
+                    transform.localEulerAngles = new Vector3(-_rotY, 0, 0);
+                }
             }
-            //Allows the Camera to move along the Y-axis
-            else
-            {
-                _rotY += Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-                _rotY = Mathf.Clamp(_rotY, minY, maxY);
-                transform.localEulerAngles = new Vector3(-_rotY, 0, 0);
-            }
+
         }
     }
 }

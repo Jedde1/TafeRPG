@@ -26,6 +26,11 @@ namespace RPG.Player
         }
         private void Move()
         {
+            //If we are alive move player
+            if (!PlayerHandler.isDead)
+            {
+
+            }
             if (_charC.isGrounded)
             {
                 //set speed
@@ -49,7 +54,14 @@ namespace RPG.Player
                     _moveDir.y = jumpSpeed;
                 }
             }
+            if (PlayerHandler.isDead)
+            {
+                _moveDir = Vector3.zero;
+            }
+            //Regardless if we are grounded or not
+            //Apply Gravity
             _moveDir.y -= _gravity * Time.deltaTime;
+            //apply Movement
             _charC.Move(_moveDir * Time.deltaTime);
         }
     }

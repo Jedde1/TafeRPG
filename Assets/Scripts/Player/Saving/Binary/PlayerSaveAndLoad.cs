@@ -12,26 +12,43 @@ public class PlayerSaveAndLoad : MonoBehaviour
         if (!PlayerPrefs.HasKey("Loaded"))
         {
             PlayerPrefs.DeleteAll();
-            Load(player);
+            FirstLoad();
             PlayerPrefs.SetInt("Loaded", 0);
             //Save Binay Data
+            Save();
         }
         else
         {
             //Load Binary 
+            Load();
         }
     }
-    public void Save(PlayerHandler player)
+    void FirstLoad()
+    {
+        player.maxHealth = 300;
+        player.maxMana =100;
+        player.maxStamina = 100;
+        player.curCheckPoint = GameObject.Find("First CheckPoint").GetComponent<Transform>();
+
+        player.curHealth = 300;
+        player.curMana = 100;
+        player.curStamina = 100;
+
+        player.transform.position = new Vector3(1, 1, 1);
+        player.transform.rotation = new Quaternion(0, 0, 0, 0);
+
+    }
+    public void Save()
     {
         PlayerSaveToBinary.SavePlayerData(player);
     }
 
     // Update is called once per frame
-    public void Load(PlayerHandler player)
+    public void Load()
     {
         PlayerDataToSave data = PlayerSaveToBinary.LoadData(player);
         player.name = data.playerName;
-
+        player.curCheckPoint = GameObject.Find(data.checkPoint).GetComponent<Transform>();
         player.maxHealth = data.maxHealth;
         player.maxMana = data.maxMana;
         player.maxStamina = data.maxStamina;
