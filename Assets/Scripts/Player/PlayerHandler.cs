@@ -5,6 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(AudioSource))]
 public class PlayerHandler : MonoBehaviour
 {
+    public Text text; 
     [Header("Value Variables")]
     public float curHealth;
     public float curStamina,curMana;
@@ -88,16 +89,21 @@ public class PlayerHandler : MonoBehaviour
     {
         //Set the death flag to this function isn't callsed again
         isDead = true;
+        text.text = "";
 
         //Set the AudioSource to play the death clip
         playerAudio.clip = deathClip;
         playerAudio.Play();
         deathImage.gameObject.GetComponent<Animator>().SetTrigger("isDead");
+        Invoke("DeathText", 2f);
+        Invoke("ReviveText", 6f);
+
         Invoke("Revive", 9f);
     }
     void Revive()
     {
         isDead = false;
+        text.text = "";
         curHealth = maxHealth;
         curMana = maxMana;
         curStamina = maxStamina;
@@ -117,6 +123,14 @@ public class PlayerHandler : MonoBehaviour
                 saveAndLoad.Save();
             }
         }
+    }
+    void DeathText()
+    {
+        text.text = "You Died";
+    }
+    void ReviveText()
+    {
+        text.text = "Haha You Suck!";
     }
 
 }
