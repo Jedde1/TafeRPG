@@ -26,13 +26,15 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject healthCanvas;
     public Image healthbar;
+    public Animator anim;
 
     private void Start()
     {
         waypoints = waypointParent.GetComponentsInChildren<Transform>();
         agent = self.GetComponent<NavMeshAgent>();
         curWaypoint = 1;
-
+        agent.speed = moveSpeed;
+        anim = self.GetComponent<Animator>();
         Patrol();
 
     }
