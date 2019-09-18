@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
 {
     public enum AIState
     {
+        Idle,
         Patrol,
         Seek,
         Attack,
@@ -17,7 +18,7 @@ public class Enemy : MonoBehaviour
     public AIState state;
     public float curHealth, mxHealth, moveSpeed, attackRange, attackSpeed, sightRange;
     public int curWaypoint;
-
+    public bool isDead;
     [Space(5), Header("Base References")]
     public GameObject self;
     public Transform player;
@@ -33,7 +34,7 @@ public class Enemy : MonoBehaviour
         waypoints = waypointParent.GetComponentsInChildren<Transform>();
         agent = self.GetComponent<NavMeshAgent>();
         curWaypoint = 1;
-        agent.speed = moveSpeed;
+        agent.speed = moveSpeed/2;
         anim = self.GetComponent<Animator>();
         Patrol();
 
@@ -41,6 +42,9 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        anim.SetBool("Walk", false);
+        anim.SetBool("Run", false);
+        anim.SetBool("Attack", false);
         Patrol();
         Seek();
         Attack();
@@ -48,12 +52,16 @@ public class Enemy : MonoBehaviour
     }
     public void Patrol()
     {
-        state = AIState.Patrol;
+      
         //DO NOT CONTINUE IF NO WAYPOINTS
-        if (waypoints.Length == 0 || Vector3.Distance(player.position,self.transform.position) <= sightRange)
+        if (waypoints.Length == 0 || Vector3.Distance(player.position,self.transform.position) <= sightRange || curHealth <= 0)
         {
             return;
         }
+        state = AIState.Patrol;
+        anim.SetBool("Walk",true);
+        agent.speed = moveSpeed / 2;
+
         //Follow waypoints
         //Set agent to target
         agent.destination = waypoints[curWaypoint].position;
@@ -75,21 +83,26 @@ public class Enemy : MonoBehaviour
     }
     public void Seek()
     {
-        if(Vector3.Distance(player.position, self.transform.position) > sightRange || Vector3.Distance(player.position, self.transform.position) < attackRange)
+        if(Vector3.Distance(player.position, self.transform.position) > sightRange || Vector3.Distance(player.position, self.transform.position) < attackRange || curHealth <= 0)
         {
             return;
         }
         state = AIState.Seek;
+        anim.SetBool("Run", true);
+        agent.speed = moveSpeed ;
+
         //If player in SightRange and not attack then chase
         agent.destination = player.position;
     }
     public virtual void Attack()
     {
-       if (Vector3.Distance(player.position, self.transform.position) > attackRange || curHealth > 0)
+       if (Vector3.Distance(player.position, self.transform.position) > attackRange || curHealth <= 0)
         {
             return;
         }
         state = AIState.Attack;
+        anim.SetBool("Attack", true);
+
         //If player in attack range attack
         Debug.Log("Attack");
     }
@@ -101,8 +114,16 @@ public class Enemy : MonoBehaviour
             //Don't run this
             return;
         }
-        //Else we are dead so run ths
         state = AIState.Die;
+        //Else we are dead so run ths
+        if (!isDead)
+        {
+           
+
+            anim.SetTrigger("Die");
+            isDead = true;
+            agent.destination = self.transform.position;
+        }
         //Drop EPIC LOOTZ
     }
 }

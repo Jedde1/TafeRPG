@@ -124,7 +124,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint 1 (6)
   m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -576,12 +576,14 @@ MonoBehaviour:
   attackSpeed: 1.5
   sightRange: 10
   curWaypoint: 3
+  isDead: 0
   self: {fileID: 261569656}
-  player: {fileID: 0}
+  player: {fileID: 1519018526}
   waypointParent: {fileID: 318128008}
   agent: {fileID: 0}
   healthCanvas: {fileID: 1785304676}
   healthbar: {fileID: 370059866}
+  anim: {fileID: 0}
   curStamina: 100
   maxStamina: 100
 --- !u!1 &283126719
@@ -765,7 +767,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint 1 (4)
   m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1293,6 +1295,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5979515128410658608, guid: 54a5b2d10809e034f9e7a2aa92ff7bd9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b5df4a420777a4e47b4f9a3938e72f82, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54a5b2d10809e034f9e7a2aa92ff7bd9, type: 3}
 --- !u!1 &510918624
@@ -1823,7 +1830,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint 1 (5)
   m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3159,7 +3166,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint 1 (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3255,7 +3262,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint 1
   m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3955,7 +3962,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint 1 (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4242,7 +4249,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint 1 (8)
   m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4824,7 +4831,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint 1 (7)
   m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5115,7 +5122,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 6f29d385fc80bb4408609fa32b7fa839, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: b5df4a420777a4e47b4f9a3938e72f82, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 6f29d385fc80bb4408609fa32b7fa839, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -5850,7 +5857,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint 1 (3)
   m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
