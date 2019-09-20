@@ -16,8 +16,8 @@ public class Enemy : MonoBehaviour
     }
     [Space(5),Header("Base Stats")]
     public AIState state;
-    public float curHealth, mxHealth, moveSpeed, attackRange, attackSpeed, sightRange;
-    public int curWaypoint;
+    public float curHealth, mxHealth, moveSpeed, attackRange, attackSpeed, sightRange, baseDamage;
+    public int curWaypoint, difficulty;
     public bool isDead;
     [Space(5), Header("Base References")]
     public GameObject self;
@@ -50,6 +50,19 @@ public class Enemy : MonoBehaviour
         Attack();
         Die();
     }
+    /*private void LateUpdate()
+    {
+        if (healthbar.fillAmount < 1 && healthbar.fillAmount > 0)
+        {
+            healthCanvas.SetActive(true);
+            healthCanvas.transform.LookAt(Camera.main.transform);
+            healthCanvas.transform.Rotate(0, 180, 0);
+        }
+        else if(healthCanvas.activeSelf == true)
+        {
+            healthCanvas.SetActive(false);
+        }
+    }*/
     public void Patrol()
     {
       
@@ -96,7 +109,7 @@ public class Enemy : MonoBehaviour
     }
     public virtual void Attack()
     {
-       if (Vector3.Distance(player.position, self.transform.position) > attackRange || curHealth <= 0)
+       if (Vector3.Distance(player.position, self.transform.position) > attackRange || curHealth <= 0 || player.GetComponent<PlayerHandler>().curHealth < 0)
         {
             return;
         }

@@ -9,7 +9,9 @@ public class PlayerHandler : MonoBehaviour
     [Header("Value Variables")]
     public float curHealth;
     public float curStamina,curMana;
-    public float maxHealth,maxStamina,maxMana;
+    public float maxHealth,maxStamina,maxMana,healRate;
+    [SerializeField]
+    public Stats[] stats;
 
     [Header("Value Variables")]
     public Slider healthBar;
@@ -24,6 +26,8 @@ public class PlayerHandler : MonoBehaviour
     AudioSource playerAudio;
     public static bool isDead;
     bool damage;
+    bool canHeal;
+    float healTimer;
 
     [Header("Postion Variables")]
     public float posX;
@@ -65,13 +69,14 @@ public class PlayerHandler : MonoBehaviour
         {
             Death();
         }
-
+#if UNITY_EDITOR
         //Damage
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.Backspace))
         {
             damage = true;
             curHealth -= 50;
         }
+#endif
         if (damage)
         {
             damageImage.color = flashColor;
@@ -82,7 +87,21 @@ public class PlayerHandler : MonoBehaviour
         {
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
-        
+        if(!canHeal && curHealth < maxHealth && curHealth > 0)
+        {
+            healTimer += Time.deltaTime;
+            if(healTimer >= 5)
+            {
+                canHeal = true;
+            }
+        }
+    }
+    private void LateUpdate()
+    {
+        if(curHealth < maxHealth && curHealth > 0 && canHeal)
+        {
+            HealOverTime();
+        }
     }
 
     void Death()
@@ -120,8 +139,16 @@ public class PlayerHandler : MonoBehaviour
             if (other.gameObject.CompareTag("CheckPoint"))
             {
                 curCheckPoint = other.transform;
+                healRate = 10;
                 saveAndLoad.Save();
             }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("CheckPoint"))
+        {
+            healRate = 0;
         }
     }
     void DeathText()
@@ -132,5 +159,15 @@ public class PlayerHandler : MonoBehaviour
     {
         text.text = "Haha You Suck!";
     }
-
+    public void DamagePlayer(float damaged)
+    {
+        damage = true;
+        curHealth -= damaged;
+        canHeal = false;
+        healTimer = 0;
+    }
+    public void HealOverTime()
+    {
+        curHealth += Time.deltaTime * (healRate+stats[2].statValue);
+    }
 }
