@@ -25,6 +25,11 @@ public class Dialogue : MonoBehaviour
             {
                 if (GUI.Button(new Rect(scr.x * 14.75f, scr.y * 8.25f, scr.x, scr.y / 2), "Finish"))
                 {
+                    Time.timeScale = 1;
+
+                    Cursor.visible = false;
+
+                    Cursor.lockState = CursorLockMode.Locked;
                     index = 0;
                     showDlg = false;
                 }
