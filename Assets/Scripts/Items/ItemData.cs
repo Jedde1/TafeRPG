@@ -23,7 +23,7 @@ public static class ItemData
                 name = "IronChest";
                 description = "Basic Iron Amrour";
                 amount = 1;
-                value = 0;
+                value = 50;
                 damage = 0;
                 armour = 10;
                 heal = 0;
@@ -36,7 +36,7 @@ public static class ItemData
                 name = "IronLeg";
                 description = "Basic Iron Amrour";
                 amount = 1;
-                value = 0;
+                value = 40;
                 damage = 0;
                 armour = 10;
                 heal = 0;
@@ -48,7 +48,7 @@ public static class ItemData
                 name = "IronBoot";
                 description = "Basic Iron Amrour";
                 amount = 1;
-                value = 0;
+                value = 25;
                 damage = 0;
                 armour = 5;
                 heal = 0;
@@ -61,7 +61,7 @@ public static class ItemData
                 name = "IronHelmet";
                 description = "Basic Iron Helmet";
                 amount = 1;
-                value = 0;
+                value = 25;
                 damage = 0;
                 armour = 5;
                 heal = 0;
@@ -75,7 +75,7 @@ public static class ItemData
                 name = "Sword_1";
                 description = "Basic Sword Given from time in Military";
                 amount = 1;
-                value = 0;
+                value = 25;
                 damage = 10;
                 armour = 0;
                 heal = 0;
@@ -87,7 +87,7 @@ public static class ItemData
                 name = "Mace_1";
                 description = "Basic Mace Given from time in Military";
                 amount = 1;
-                value = 0;
+                value = 25;
                 damage = 10;
                 armour = 0;
                 heal = 0;
@@ -99,7 +99,7 @@ public static class ItemData
                 name = "Axe_1";
                 description = "Basic Axe given from time in Military";
                 amount = 1;
-                value = 0;
+                value = 25;
                 damage = 10;
                 armour = 0;
                 heal = 0;
@@ -153,7 +153,7 @@ public static class ItemData
                 name = "Apple";
                 description = "Munches and Crunches";
                 amount = 1;
-                value = 0;
+                value = 2;
                 damage = 0;
                 armour = 0;
                 heal = 10;
@@ -170,8 +170,7 @@ public static class ItemData
                 armour = 0;
                 heal = 50;
                 iconName = "Food/Meat";
-                meshName = "Food/Meat" +
-                    "";
+                meshName = "Food/Meat";
                 type = ItemTypes.Food;
                 break;
             #endregion
@@ -284,17 +283,17 @@ public static class ItemData
                 break;
             #endregion
             default:
-                itemId = 0;
-                name = "";
-                description = "";
-                amount = 0;
-                value = 0;
+                itemId = 300;
+                name = "Apple";
+                description = "Munches and Crunches";
+                amount = 1;
+                value = 2;
                 damage = 0;
                 armour = 0;
-                heal = 0;
-                iconName = "";
-                meshName = "";
-                type = ItemTypes.Misc;
+                heal = 10;
+                iconName = "Food/Apple";
+                meshName = "Food/Apple";
+                type = ItemTypes.Food;
                 break;
         }
         Item temp = new Item

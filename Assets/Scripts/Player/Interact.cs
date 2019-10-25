@@ -38,6 +38,35 @@ public class Interact : MonoBehaviour
                         break;
                     case "Item":
                         Debug.Log("Pick up Item");
+                        ItemHandler handler = hitInfo.transform.GetComponent<ItemHandler>();
+                        if(handler != null)
+                        {
+                            handler.Oncollection();
+                        }
+                        break;
+                    case "Treasure":
+                        Debug.Log("Surprise Mimic Attack");
+                        Chest chest = hitInfo.transform.GetComponent<Chest>();
+                        if (chest != null)
+                        {
+                            chest.showChest = true;
+                            LinearInventory.showInv = true;
+                            Cursor.visible = true;
+                            Cursor.lockState = CursorLockMode.None;
+                            Time.timeScale = 0;
+                        }
+                            break;
+                    case "Shop":
+                        Shop shop = hitInfo.transform.GetComponent<Shop>();
+                        if (shop != null)
+                        {
+                            shop.showShop = true;
+                            LinearInventory.showInv = true;
+                            Cursor.visible = true;
+                            Cursor.lockState = CursorLockMode.None;
+                            Time.timeScale = 0;
+                        }
+                        Debug.Log("See Something You Like?");
                         break;
 
                 }

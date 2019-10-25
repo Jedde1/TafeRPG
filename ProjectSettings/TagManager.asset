@@ -8,6 +8,8 @@ TagManager:
   - Item
   - NPC
   - CheckPoint
+  - Treasure
+  - Shop
   layers:
   - Default
   - TransparentFX
