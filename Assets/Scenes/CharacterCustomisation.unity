@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -179,7 +179,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &534669902
 GameObject:
@@ -256,10 +256,171 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &912094238
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6065152883309038772, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_Name
+      value: Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065152883309269204, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065152883309269204, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065152883309269204, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065152883309269204, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065152883309269204, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065152883309269204, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065152883309269204, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065152883309269204, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065152883309269204, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065152883309269204, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065152883309269204, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065152883320603086, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 53b7bb8b2b331664aadb7f6f8013db28, type: 2}
+    - target: {fileID: 6065152883320603086, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4cb06e50f00463545a2b0703a5aecb63, type: 2}
+    - target: {fileID: 6065152883320603086, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6a46f6ce9ffa6d4d8d6de9b84367223, type: 2}
+    - target: {fileID: 6065152883320603086, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 20cad7f18e9f17f47a82c29866bfc8ad, type: 2}
+    - target: {fileID: 6065152883320603086, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: d5975c645a5f88e4a927f4d79c6bab39, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f05f4bbc72788a04da155a927c5572fc, type: 3}
+--- !u!1 &1045665261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6065152883309038772, guid: f05f4bbc72788a04da155a927c5572fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 912094238}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1045665262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045665261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a06c4f06caaf247bf723d2171a9393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterRenderer: {fileID: 2083594058}
+  skin: []
+  eyes: []
+  mouth: []
+  hair: []
+  clothes: []
+  armour: []
+  skinIndex: 0
+  eyesIndex: 0
+  mouthIndex: 0
+  hairIndex: 0
+  clothesIndex: 0
+  armourIndex: 0
+  skinMax: 4
+  eyesMax: 4
+  mouthMax: 3
+  hairMax: 5
+  clothesMax: 11
+  armourMax: 11
+  characterName: Adventurer
+  playerStats:
+  - statName: Strength
+    statValue: 0
+    tempStat: 0
+  - statName: Dexterity
+    statValue: 0
+    tempStat: 0
+  - statName: Constitution
+    statValue: 0
+    tempStat: 0
+  - statName: Intelligence
+    statValue: 0
+    tempStat: 0
+  - statName: Wisdom
+    statValue: 0
+    tempStat: 0
+  - statName: Charisma
+    statValue: 0
+    tempStat: 0
+  charClass: 0
+  scr: {x: 0, y: 0}
+  selectedIndex: 0
+  points: 10
+--- !u!137 &2083594058 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6065152883320603086, guid: f05f4bbc72788a04da155a927c5572fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 912094238}
+  m_PrefabAsset: {fileID: 0}
