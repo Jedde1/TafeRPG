@@ -19,4 +19,8 @@ public class Menu : MonoBehaviour
 #endif
         Application.Quit();
     }
+    public void Slot(int slotNum)
+    {
+        PlayerDataToSave.saveSlot = slotNum;
+    }
 }

@@ -10,6 +10,7 @@ TagManager:
   - CheckPoint
   - Treasure
   - Shop
+  - Renderer
   layers:
   - Default
   - TransparentFX

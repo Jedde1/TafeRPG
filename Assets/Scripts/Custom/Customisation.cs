@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Customisation : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class Customisation : MonoBehaviour
     public Vector2 scr;
     public int selectedIndex;
     public int points = 10;
+
+    public PlayerHandler player;
+    public PlayerSaveAndLoad saveNew;
     #endregion
     // Start is called before the first frame update
     void Start()
@@ -73,7 +77,29 @@ public class Customisation : MonoBehaviour
     // Update is called once per frame
     void Save()
     {
+        player.maxHealth = 100;
+        player.maxMana = 100;
+        player.maxStamina = 100;
 
+        player.curHealth = player.maxHealth;
+        player.curMana = player.maxMana;
+        player.curStamina = player.maxStamina;
+
+        player.skinIndex = skinIndex;
+        player.hairIndex = hairIndex;
+        player.mouthIndex = mouthIndex;
+        player.eyesIndex = eyesIndex;
+        player.clothesIndex = clothesIndex;
+        player.armourIndex = armourIndex;
+
+        player.characterClass = charClass;
+        player.characterName = characterName;
+        for (int i = 0; i < playerStats.Length; i++)
+        {
+            player.playerStats[i].value = (playerStats[i].statValue + playerStats[i].tempStat);
+            saveNew.Save();
+            SceneManager.LoadScene(2);
+        }
     }
     void SetTexture(string type, int dir)
     {
@@ -157,6 +183,10 @@ public class Customisation : MonoBehaviour
         scr = new Vector2(Screen.width / 16f, Screen.height / 9f);
         DisplayCustom();
         DisplayStats();
+        if (GUI.Button(new Rect(scr.x * 7.25f, scr.y * 8.25f, scr.x * 1.25f, scr.y * .5f), "Save"))
+        {
+            Save();
+        }
     }
     void DisplayCustom()
     {

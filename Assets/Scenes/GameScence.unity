@@ -112,6 +112,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 499fbf7a13f59634c94da264d6601ca9, type: 2}
+--- !u!1 &803736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 803737}
+  m_Layer: 0
+  m_Name: First Checkpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &803737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.82, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 38265464}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &38265461 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: dfb3f3df7b488f14890b2ef36a153cb6,
@@ -9495,6 +9525,7 @@ Transform:
   m_Children:
   - {fileID: 947300646}
   - {fileID: 1657644430}
+  - {fileID: 1669463898}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10864,7 +10895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -371.82, y: -248.83}
+  m_AnchoredPosition: {x: -371.82, y: -220.24}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!135 &1424923349
@@ -11356,6 +11387,16 @@ MonoBehaviour:
   posZ: 0
   curCheckPoint: {fileID: 1424923348}
   saveAndLoad: {fileID: 1657644433}
+  custom: 0
+  skinIndex: 0
+  eyesIndex: 0
+  mouthIndex: 0
+  hairIndex: 0
+  clothesIndex: 0
+  armourIndex: 0
+  characterClass: 0
+  characterName: 
+  firstCheckPointName: First CheckPoint
 --- !u!82 &1519018531
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11638,7 +11679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dfb3f3df7b488f14890b2ef36a153cb6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.009155273
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dfb3f3df7b488f14890b2ef36a153cb6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11792,6 +11833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1519018530}
+  custom: 0
   x: 0
   y: 0
   z: 0
@@ -11799,6 +11841,50 @@ MonoBehaviour:
   rotY: 0
   rotZ: 0
   rotW: 0
+--- !u!1 &1669463897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1669463898}
+  - component: {fileID: 1669463899}
+  m_Layer: 0
+  m_Name: LoadCustom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1669463898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669463897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 853229667}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1669463899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669463897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42fac780b34a0874391a57acb97ec714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1519018530}
 --- !u!1 &1688316714
 GameObject:
   m_ObjectHideFlags: 0
@@ -13790,6 +13876,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065152883309038774, guid: f05f4bbc72788a04da155a927c5572fc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Renderer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f05f4bbc72788a04da155a927c5572fc, type: 3}

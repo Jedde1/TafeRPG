@@ -5,39 +5,17 @@ using UnityEngine;
 public class PlayerSaveAndLoad : MonoBehaviour
 {
     public PlayerHandler player;
+    public bool custom;
     public float x, y, z;
     public float rotX, rotY, rotZ, rotW;
-    private void Awake()
+    private void Start()
     {
-        if (!PlayerPrefs.HasKey("Loaded"))
+        if (!custom)
         {
-            PlayerPrefs.DeleteAll();
-            FirstLoad();
-            PlayerPrefs.SetInt("Loaded", 0);
-            //Save Binay Data
-            Save();
-        }
-        else
-        {
-            //Load Binary 
             Load();
         }
     }
-    void FirstLoad()
-    {
-        player.maxHealth = 300;
-        player.maxMana =100;
-        player.maxStamina = 100;
-        player.curCheckPoint = GameObject.Find("First CheckPoint").GetComponent<Transform>();
-
-        player.curHealth = 300;
-        player.curMana = 100;
-        player.curStamina = 100;
-
-        player.transform.position = new Vector3(1, 1, 1);
-        player.transform.rotation = new Quaternion(0, 0, 0, 0);
-
-    }
+   
     public void Save()
     {
         PlayerSaveToBinary.SavePlayerData(player);
@@ -57,8 +35,34 @@ public class PlayerSaveAndLoad : MonoBehaviour
         player.curMana = data.curMana;
         player.curStamina = data.curStamina;
 
-        player.transform.position = new Vector3(data.pX, data.pY, data.pZ);
-        player.transform.rotation = new Quaternion(data.rX, data.rY, data.rZ, data.rW);
+        if (!(data.pX == 0 && data.pY == 0 && data.pZ == 0))
+        {
+            player.transform.position = new Vector3(data.pX, data.pY, data.pZ);
+            player.transform.rotation = new Quaternion(data.rX, data.rY, data.rZ, data.rW);
+        }
+        else
+        {
+            player.transform.position = player.curCheckPoint.position;
+            player.transform.rotation = player.curCheckPoint.rotation;
+        }
+        player.skinIndex = data.skinIndex;
+        player.hairIndex = data.hairIndex;
+        player.mouthIndex = data.mouthIndex;
+        player.eyesIndex = data.eyesIndex;
+        player.clothesIndex = data.clothesIndex;
+        player.armourIndex = data.armourIndex;
 
+        player.characterClass = (CharacterClass)data.classIndex;
+        player.characterName = data.playerName;
+        for (int i = 0; i < player.playerStats.Length; i++)
+        {
+            player.playerStats[i].value = data.stats[i];
+        }
+        LoadCustomisation.SetTexture("Skin", data.skinIndex);
+        LoadCustomisation.SetTexture("Hair", data.hairIndex);
+        LoadCustomisation.SetTexture("Mouth", data.mouthIndex);
+        LoadCustomisation.SetTexture("Eyes", data.eyesIndex);
+        LoadCustomisation.SetTexture("Clothes", data.clothesIndex);
+        LoadCustomisation.SetTexture("Armour", data.armourIndex);
     }
 }

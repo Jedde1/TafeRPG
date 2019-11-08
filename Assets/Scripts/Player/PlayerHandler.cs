@@ -17,13 +17,14 @@ public class PlayerHandler : MonoBehaviour
     public float curHealth;
     public float curStamina,curMana;
     public float maxHealth,maxStamina,maxMana,healRate;
+    
     [SerializeField]
     public PlayerStats[] playerStats;
 
     [Header("Value Variables")]
     public Slider healthBar;
     public Slider manaBar,staminaBar;
-
+    
     [Header("Damage Effect Variables")]
     public Image damageImage;
     public Image deathImage;
@@ -45,7 +46,12 @@ public class PlayerHandler : MonoBehaviour
 
     [Header("Save")]
     public PlayerSaveAndLoad saveAndLoad;
-
+    [Header("Custom")]
+    public bool custom;
+    public int skinIndex, eyesIndex, mouthIndex, hairIndex, clothesIndex, armourIndex;
+    public CharacterClass characterClass;
+    public string characterName;
+    public string firstCheckPointName = "First CheckPoint";
     // Start is called before the first frame update
     void Start()
     {
@@ -55,54 +61,58 @@ public class PlayerHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Health
-        if (healthBar.value != Mathf.Clamp01(curHealth / maxHealth))
+        if (!custom)
         {
-            curHealth = Mathf.Clamp(curHealth, 0, maxHealth);
-            healthBar.value = Mathf.Clamp01(curHealth / maxHealth);
-        }
-        if(manaBar.value != Mathf.Clamp01(curMana / maxMana))
-        {
-            curMana = Mathf.Clamp(curMana, 0, maxMana);
-            manaBar.value = Mathf.Clamp01(curMana / maxMana);
-        }
-        if(staminaBar.value != Mathf.Clamp01(curStamina / maxStamina))
-        {
-            curStamina = Mathf.Clamp(curStamina, 0, maxStamina);
-            staminaBar.value = Mathf.Clamp01(curStamina / maxStamina);
-        }
-
-        if (curHealth <= 0 && !isDead)
-        {
-            Death();
-        }
-#if UNITY_EDITOR
-        //Damage
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            damage = true;
-            curHealth -= 50;
-        }
-#endif
-        if (damage)
-        {
-            damageImage.color = flashColor;
-            damage = false;
-
-        }
-        else
-        {
-            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-        }
-        if(!canHeal && curHealth < maxHealth && curHealth > 0)
-        {
-            healTimer += Time.deltaTime;
-            if(healTimer >= 5)
+            //Health
+            if (healthBar.value != Mathf.Clamp01(curHealth / maxHealth))
             {
-                canHeal = true;
+                curHealth = Mathf.Clamp(curHealth, 0, maxHealth);
+                healthBar.value = Mathf.Clamp01(curHealth / maxHealth);
+            }
+            if (manaBar.value != Mathf.Clamp01(curMana / maxMana))
+            {
+                curMana = Mathf.Clamp(curMana, 0, maxMana);
+                manaBar.value = Mathf.Clamp01(curMana / maxMana);
+            }
+            if (staminaBar.value != Mathf.Clamp01(curStamina / maxStamina))
+            {
+                curStamina = Mathf.Clamp(curStamina, 0, maxStamina);
+                staminaBar.value = Mathf.Clamp01(curStamina / maxStamina);
+            }
+
+            if (curHealth <= 0 && !isDead)
+            {
+                Death();
+            }
+#if UNITY_EDITOR
+            //Damage
+            if (Input.GetKeyDown(KeyCode.Backspace))
+            {
+                damage = true;
+                curHealth -= 50;
+            }
+#endif
+            if (damage)
+            {
+                damageImage.color = flashColor;
+                damage = false;
+
+            }
+            else
+            {
+                damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+            }
+            if (!canHeal && curHealth < maxHealth && curHealth > 0)
+            {
+                healTimer += Time.deltaTime;
+                if (healTimer >= 5)
+                {
+                    canHeal = true;
+                }
             }
         }
     }
+      
     private void LateUpdate()
     {
         if(curHealth < maxHealth && curHealth > 0 && canHeal)
